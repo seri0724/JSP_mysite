@@ -144,8 +144,7 @@ public class GuestbookDao {
 					vo.setRegDate(regDate);
 					
 					list.add(vo);
-				}
-
+					}
 				} catch (ClassNotFoundException e) {
 					System.out.println("error: 드라이버 로딩 실패 - " + e);
 				} catch (SQLException e) {
@@ -194,17 +193,17 @@ public class GuestbookDao {
 			// 4.결과처리
 			while(rs.next()) {	
 				
-			String name = rs.getString("name");
-			String password = rs.getString("password");
-			String content = rs.getString("content");
-			String regDate = rs.getString("reg_date");
+				String name = rs.getString("name");
+				String password = rs.getString("password");
+				String content = rs.getString("content");
+				String regDate = rs.getString("reg_date");
 			
-			vo.setNo(no);
-			vo.setName(name);
-			vo.setPassword(password);
-			vo.setContent(content);
-			vo.setRegDate(regDate);
-			} 
+				vo.setNo(no);
+				vo.setName(name);
+				vo.setPassword(password);
+				vo.setContent(content);
+				vo.setRegDate(regDate);
+				} 
 			} catch (ClassNotFoundException e) {
 				System.out.println("error: 드라이버 로딩 실패 - " + e);
 			} catch (SQLException e) {
