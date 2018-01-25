@@ -15,7 +15,7 @@ import com.javaex.dao.GuestbookDao;
 import com.javaex.util.WebUtil;
 import com.javaex.vo.GuestbookVo;
 
-@WebServlet("/gb") //GuestbookServlet -> gb로 이름 바꿔줌
+@WebServlet("/gb") 
 public class GuestbookServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
