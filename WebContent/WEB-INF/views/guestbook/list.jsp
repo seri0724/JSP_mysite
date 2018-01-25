@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import = "java.util.List" %>
-<%@ page import = "com.javaex.vo.GuestbookVo" %>
-
-<%request.setCharacterEncoding("UTF-8");
-List<GuestbookVo> list = (List<GuestbookVo>) request.getAttribute("list");
-%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -17,11 +12,11 @@ List<GuestbookVo> list = (List<GuestbookVo>) request.getAttribute("list");
 
 	<div id="container">
 		
-		<jsp:include page="/WEB-INF/views/includes/header.jsp"></jsp:include>
+		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 		
 		<!-- header -->
 		
-		<jsp:include page="/WEB-INF/views/includes/navigation.jsp"></jsp:include>
+		<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
 		
 		<!-- navigation -->
 		
@@ -29,7 +24,7 @@ List<GuestbookVo> list = (List<GuestbookVo>) request.getAttribute("list");
 			<div id="content">
 				<div id="guestbook">
 					
-					<form action="/mysite/gb?a=add" method="get">
+					<form action="/mysite/gb?a=add" method="post">
 						
 						<table>
 							<tr>
@@ -46,29 +41,34 @@ List<GuestbookVo> list = (List<GuestbookVo>) request.getAttribute("list");
 						</table>
 					</form>
 					<ul>
-					<% for (GuestbookVo vo : list) { %>
+						
 						<li>
-							<table>
+							<table border=1>
 								<tr>
-									<td><%=vo.getNo() %></td>
-									<td><%=vo.getName() %></td>
-									<td><%=vo.getRegDate() %></td>
-									<td><a href="/mysite/gb?a=deleteform&no=<%=vo.getNo() %>">삭제</a></td>
+									<td>no</td><td>name</td><td>regDate</td>
+								</tr>
+							<c:forEach items="${list }" var="userVo">
+								<tr>
+									<td>${userVo.no }</td>
+									<td>${userVo.name }</td>
+									<td>${userVo.regDate }</td> 
+									<td><a href="/mysite/gb?a=deleteform&no=${userVo.no }">삭제</a></td>
 								</tr>
 								<tr>
-									<td colspan=4><%=vo.getContent() %>
-									</td>
+									<td colspan=4>${userVo.content }
+									</td> 
 								</tr>
+							</c:forEach>
 							</table>
 							<br>
 						</li>
-						<% } %>
+						
 					</ul>
 				</div><!-- /guestbook -->
 			</div><!-- /content -->
 		</div><!-- /wrapper -->
 		
-		<jsp:include page="/WEB-INF/views/includes/footer.jsp"></jsp:include>
+		<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 		
 		<!-- footer -->
 		

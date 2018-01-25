@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -11,11 +12,11 @@
 
 	<div id="container">
 		
-		<jsp:include page="/WEB-INF/views/includes/header.jsp"></jsp:include>
+		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 		
 		<!-- header -->
 				
-		<jsp:include page="/WEB-INF/views/includes/navigation.jsp"></jsp:include>
+		<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
 		
 		<!-- navigation -->
 			
@@ -23,7 +24,7 @@
 			<div id="content">
 				<div id="user">
 	
-					<form id="join-form" name="joinForm" method="get" action="/mysite/user">
+					<form id="join-form" name="joinForm" method="post" action="/mysite/user">
 						
 						<label class="block-label" for="name">이름</label>
 						<input id="name" name="name" type="text" value="">
@@ -46,7 +47,7 @@
 							<input id="agree-prov" type="checkbox" name="agreeProv" value="y">
 							<label>서비스 약관에 동의합니다.</label>
 						</fieldset>
-						<input type="text" name="a" value="join">
+						<input type="hidden" name="a" value="join">
 						<input type="submit" value="가입하기">
 						
 					</form>
@@ -55,7 +56,7 @@
 			</div><!-- /content -->
 		</div><!-- /wrapper -->
 		
-		<jsp:include page="/WEB-INF/views/includes/footer.jsp"></jsp:include>
+		<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 		
 		<!-- footer -->
 		

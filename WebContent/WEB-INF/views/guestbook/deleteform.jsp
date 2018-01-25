@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% int no  = Integer.valueOf(request.getParameter("no")); %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +11,11 @@
 <body>
 	<div id="container">
 		
-		<jsp:include page="/WEB-INF/views/includes/header.jsp"></jsp:include>
+		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 		
 		<!-- header -->
 		
-		<jsp:include page="/WEB-INF/views/includes/navigation.jsp"></jsp:include>
+		<c:import url="/WEB-INF/views/includes/navigation.jsp"></c:import>
 		
 		<!-- navigation -->
 		
@@ -22,12 +23,12 @@
 			<div id="content">
 				<div id="guestbook" class="delete-form">
 					
-					<form method="get" action="/mysite/gb">
+					<form method="post" action="/mysite/gb">
 						
 						<label>비밀번호</label>
 						<input type="password" name="password">
 						<input type="submit" value="확인">
-						<input type="hidden" value="<%=no%>" name="no">
+						<input type="hidden" value="${param.no }" name="no">
 						<input type="hidden" value="delete" name="a">
 					</form>
 					<a href="/mysite/gb?a=list">방명록 리스트</a>
@@ -36,7 +37,7 @@
 			</div><!-- /content -->
 		</div><!-- /wrapper -->
 		
-		<jsp:include page="/WEB-INF/views/includes/footer.jsp"></jsp:include>
+		<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 		
 		<!-- footer -->
 		
