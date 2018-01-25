@@ -14,7 +14,7 @@
 				<!-- 로그인 후 -->
 				<li><a href="/mysite/user?a=modifyform">회원정보수정</a></li>
 				<li><a href="/mysite/user?a=logout">로그아웃</a></li> 
-				<li>${authUser.name }님 안녕하세요^^</li>
+				<li>${authUser.name }님 안녕하세요^^~♥</li>
 			</c:otherwise>
 			</c:choose>
 			</ul>
