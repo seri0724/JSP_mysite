@@ -44,9 +44,6 @@
 						
 						<li>
 							<table border=1>
-								<tr>
-									<td>no</td><td>name</td><td>regDate</td>
-								</tr>
 							<c:forEach items="${list }" var="userVo">
 								<tr>
 									<td>${userVo.no }</td>
